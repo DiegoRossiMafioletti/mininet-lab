@@ -1,0 +1,15 @@
+version: '3'
+services:
+  mininet:
+    build: .
+    privileged: true
+    stdin_open: true
+    tty: true
+    ports:
+      - 8080:8080
+    volumes:
+      - "/tmp/.X11-unix:/tmp/.X11-unix"
+      - "/lib/modules:/lib/modules"
+      - "${PWD}:/opt"
+    environment:
+      - DISPLAY=${DISPLAY}
